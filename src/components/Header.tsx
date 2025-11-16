@@ -1,26 +1,50 @@
-import { Bot, Settings } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
 export const Header = () => {
   return (
-    <header className="w-full border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <div className="h-10 w-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow-primary">
-            <Bot className="h-6 w-6 text-primary-foreground" />
+    <header style={{
+      background: 'hsl(220 20% 14%)',
+      borderBottom: '1px solid hsl(217 25% 22%)',
+      padding: '20px',
+      position: 'sticky',
+      top: 0
+    }}>
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <div style={{
+            width: '50px',
+            height: '50px',
+            background: 'hsl(195 100% 50%)',
+            borderRadius: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px'
+          }}>
+            🤖
           </div>
           <div>
-            <h1 className="text-2xl font-bold bg-gradient-accent bg-clip-text text-transparent">
+            <h1 style={{ color: 'hsl(210 40% 98%)', fontSize: '28px', margin: 0 }}>
               NEMO
             </h1>
-            <p className="text-xs text-muted-foreground">
+            <p style={{ color: 'hsl(215 20% 65%)', fontSize: '12px', margin: 0 }}>
               Naturally Evolving Model
             </p>
           </div>
         </div>
-        <Button variant="ghost" size="icon" className="text-foreground hover:text-primary">
-          <Settings className="h-5 w-5" />
-        </Button>
+        
+        <button style={{
+          background: 'transparent',
+          border: 'none',
+          fontSize: '24px',
+          cursor: 'pointer'
+        }}>
+          ⚙️
+        </button>
       </div>
     </header>
   );
