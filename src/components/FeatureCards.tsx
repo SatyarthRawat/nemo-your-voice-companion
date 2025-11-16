@@ -32,24 +32,24 @@ const features = [
 export const FeatureCards = () => {
   return (
     <div className="w-full">
-      <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-accent bg-clip-text text-transparent">
+      <h3 className="text-xl font-semibold mb-4 text-foreground">
         Voice Commands
       </h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {features.map((feature, index) => (
           <Card
             key={index}
-            className="group p-4 border-border bg-card/50 backdrop-blur hover:bg-card hover:shadow-glow-primary transition-all duration-300 cursor-pointer"
+            className="p-3 border-border bg-card hover:bg-card/80 transition-colors"
           >
             <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="h-12 w-12 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-                <feature.icon className="h-6 w-6 text-primary-foreground" />
+              <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <feature.icon className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <h4 className="font-semibold text-sm text-foreground">
+                <h4 className="font-medium text-sm text-foreground">
                   {feature.title}
                 </h4>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-xs text-muted-foreground">
                   {feature.description}
                 </p>
               </div>

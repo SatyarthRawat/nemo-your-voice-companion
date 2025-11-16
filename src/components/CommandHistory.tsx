@@ -39,32 +39,32 @@ export const CommandHistory = () => {
   ];
 
   return (
-    <Card className="h-full border-border bg-card/50 backdrop-blur">
+    <Card className="border-border bg-card">
       <div className="p-4 border-b border-border flex items-center space-x-2">
-        <Clock className="h-5 w-5 text-primary" />
-        <h3 className="font-semibold text-foreground">Command History</h3>
+        <Clock className="h-4 w-4 text-primary" />
+        <h3 className="font-medium text-foreground">Recent Commands</h3>
       </div>
-      <ScrollArea className="h-[400px] p-4">
-        <div className="space-y-4">
+      <ScrollArea className="h-[300px] p-4">
+        <div className="space-y-3">
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`flex items-start space-x-3 ${
+              className={`flex items-start space-x-2 ${
                 message.type === 'user' ? 'justify-end' : 'justify-start'
               }`}
             >
               {message.type === 'assistant' && (
-                <div className="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-primary flex items-center justify-center">
-                  <Bot className="h-4 w-4 text-primary-foreground" />
+                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center">
+                  <Bot className="h-3 w-3 text-primary" />
                 </div>
               )}
               <div
-                className={`flex flex-col space-y-1 max-w-[70%] ${
+                className={`flex flex-col space-y-1 max-w-[75%] ${
                   message.type === 'user' ? 'items-end' : 'items-start'
                 }`}
               >
                 <div
-                  className={`rounded-2xl px-4 py-2 ${
+                  className={`rounded-lg px-3 py-2 ${
                     message.type === 'user'
                       ? 'bg-primary text-primary-foreground'
                       : 'bg-secondary text-secondary-foreground'
@@ -77,8 +77,8 @@ export const CommandHistory = () => {
                 </span>
               </div>
               {message.type === 'user' && (
-                <div className="flex-shrink-0 h-8 w-8 rounded-full bg-secondary flex items-center justify-center">
-                  <User className="h-4 w-4 text-foreground" />
+                <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center">
+                  <User className="h-3 w-3 text-foreground" />
                 </div>
               )}
             </div>
