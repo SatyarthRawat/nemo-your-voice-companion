@@ -1,63 +1,38 @@
 import { useState } from 'react';
-import { Mic, MicOff } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
-type VoiceStatus = 'idle' | 'listening' | 'processing' | 'speaking';
 
 export const VoiceInterface = () => {
-  const [status, setStatus] = useState<VoiceStatus>('idle');
-  const [isActive, setIsActive] = useState(false);
+  const [isListening, setIsListening] = useState(false);
 
-  const handleMicClick = () => {
-    if (status === 'idle') {
-      setIsActive(true);
-      setStatus('listening');
-      // Backend integration would go here
-    } else {
-      setIsActive(false);
-      setStatus('idle');
-    }
-  };
-
-  const getStatusText = () => {
-    switch (status) {
-      case 'listening':
-        return 'Listening...';
-      case 'processing':
-        return 'Processing...';
-      case 'speaking':
-        return 'Speaking...';
-      default:
-        return 'Click to speak';
-    }
+  const handleClick = () => {
+    setIsListening(!isListening);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-6">
-      <Button
-        onClick={handleMicClick}
-        size="lg"
-        className={`h-24 w-24 rounded-full transition-colors ${
-          isActive
-            ? 'bg-primary hover:bg-primary/90'
-            : 'bg-secondary hover:bg-secondary/80'
-        }`}
+    <div style={{ textAlign: 'center', padding: '40px' }}>
+      <button
+        onClick={handleClick}
+        style={{
+          width: '120px',
+          height: '120px',
+          borderRadius: '50%',
+          border: 'none',
+          background: isListening ? 'hsl(195 100% 50%)' : 'hsl(217 25% 20%)',
+          color: 'white',
+          fontSize: '48px',
+          cursor: 'pointer',
+          transition: 'all 0.3s'
+        }}
       >
-        {isActive ? (
-          <Mic className="h-10 w-10 text-primary-foreground" />
-        ) : (
-          <MicOff className="h-10 w-10 text-foreground" />
-        )}
-      </Button>
-
-      <div className="text-center">
-        <h2 className="text-2xl font-semibold text-foreground">
-          {getStatusText()}
-        </h2>
-        <p className="text-muted-foreground text-sm mt-2">
-          {isActive ? 'Listening to your command' : 'Click the microphone to start'}
-        </p>
-      </div>
+        🎤
+      </button>
+      
+      <h2 style={{ color: 'hsl(210 40% 98%)', marginTop: '30px', fontSize: '24px' }}>
+        {isListening ? 'Listening...' : 'Click to speak'}
+      </h2>
+      
+      <p style={{ color: 'hsl(215 20% 65%)', marginTop: '10px' }}>
+        {isListening ? 'Say your command' : 'Press the microphone'}
+      </p>
     </div>
   );
 };

@@ -5,22 +5,24 @@ import { FeatureCards } from '@/components/FeatureCards';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div style={{ 
+      minHeight: '100vh', 
+      background: 'hsl(220 25% 10%)',
+      color: 'white'
+    }}>
       <Header />
       
-      <main className="container mx-auto px-4 py-8 space-y-8">
-        <section className="py-8">
-          <VoiceInterface />
-        </section>
-
-        <section>
+      <div style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto', 
+        padding: '20px' 
+      }}>
+        <VoiceInterface />
+        <div style={{ marginTop: '40px' }}>
           <CommandHistory />
-        </section>
-
-        <section>
-          <FeatureCards />
-        </section>
-      </main>
+        </div>
+        <FeatureCards />
+      </div>
     </div>
   );
 };

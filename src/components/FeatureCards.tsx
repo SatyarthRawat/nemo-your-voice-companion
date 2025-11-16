@@ -1,60 +1,47 @@
-import {
-  MessageSquare,
-  Music,
-  Mail,
-  Cloud,
-  Search,
-  Calendar,
-  Navigation,
-  Phone,
-  Video,
-  Settings,
-  Globe,
-  Share2,
-} from 'lucide-react';
-import { Card } from '@/components/ui/card';
-
-const features = [
-  { icon: MessageSquare, title: 'AI Chat', description: 'Natural conversations' },
-  { icon: Music, title: 'Media Control', description: 'Play music & videos' },
-  { icon: Mail, title: 'Email', description: 'Send & manage emails' },
-  { icon: Cloud, title: 'Weather', description: 'Real-time forecasts' },
-  { icon: Search, title: 'Web Search', description: 'Google & YouTube' },
-  { icon: Calendar, title: 'Scheduling', description: 'Manage appointments' },
-  { icon: Navigation, title: 'Navigation', description: 'Get directions' },
-  { icon: Phone, title: 'Contacts', description: 'Manage contacts' },
-  { icon: Video, title: 'Browser', description: 'Control browser' },
-  { icon: Settings, title: 'Apps', description: 'Open & close apps' },
-  { icon: Globe, title: 'Websites', description: 'Visit any site' },
-  { icon: Share2, title: 'WhatsApp', description: 'Send messages' },
-];
-
 export const FeatureCards = () => {
+  const features = [
+    { emoji: '💬', title: 'AI Chat', desc: 'Natural conversations' },
+    { emoji: '🎵', title: 'Media', desc: 'Play music & videos' },
+    { emoji: '📧', title: 'Email', desc: 'Send messages' },
+    { emoji: '🌤️', title: 'Weather', desc: 'Forecasts' },
+    { emoji: '🔍', title: 'Search', desc: 'Google & YouTube' },
+    { emoji: '📅', title: 'Schedule', desc: 'Appointments' },
+    { emoji: '🗺️', title: 'Navigate', desc: 'Directions' },
+    { emoji: '📱', title: 'Contacts', desc: 'Manage contacts' },
+  ];
+
   return (
-    <div className="w-full">
-      <h3 className="text-xl font-semibold mb-4 text-foreground">
+    <div style={{ marginTop: '40px' }}>
+      <h3 style={{ color: 'hsl(210 40% 98%)', marginBottom: '20px' }}>
         Voice Commands
       </h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        {features.map((feature, index) => (
-          <Card
-            key={index}
-            className="p-3 border-border bg-card hover:bg-card/80 transition-colors"
+      
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+        gap: '15px'
+      }}>
+        {features.map((feature, i) => (
+          <div
+            key={i}
+            style={{
+              background: 'hsl(220 20% 14%)',
+              borderRadius: '10px',
+              padding: '20px',
+              textAlign: 'center',
+              border: '1px solid hsl(217 25% 22%)'
+            }}
           >
-            <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <feature.icon className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-medium text-sm text-foreground">
-                  {feature.title}
-                </h4>
-                <p className="text-xs text-muted-foreground">
-                  {feature.description}
-                </p>
-              </div>
+            <div style={{ fontSize: '32px', marginBottom: '10px' }}>
+              {feature.emoji}
             </div>
-          </Card>
+            <h4 style={{ color: 'hsl(210 40% 98%)', margin: '5px 0' }}>
+              {feature.title}
+            </h4>
+            <p style={{ color: 'hsl(215 20% 65%)', fontSize: '13px', margin: 0 }}>
+              {feature.desc}
+            </p>
+          </div>
         ))}
       </div>
     </div>
